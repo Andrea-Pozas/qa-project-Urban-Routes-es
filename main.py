@@ -1,6 +1,5 @@
 
-
-
+# La variable para generar en el código de confirmación del teléfono 
 # no modificar
 def retrieve_phone_code(driver) -> str:
     """Este código devuelve un número de confirmación de teléfono y lo devuelve como un string.
