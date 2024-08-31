@@ -176,7 +176,7 @@ class UrbanRoutesPage:
 
     # 9. Esperar a que aparezca la información del conductor en el modal
     def open_information_driver_screen(self):
-        WebDriverWait(self.driver, 300).until(expected_conditions.visibility_of_element_located(self.img_driver))
+        WebDriverWait(self.driver, 40).until(expected_conditions.visibility_of_element_located(self.img_driver))
         return self.driver.find_element(*self.img_driver).is_displayed()
 
 
