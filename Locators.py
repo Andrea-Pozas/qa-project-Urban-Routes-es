@@ -9,10 +9,10 @@ class UrbanRoutesPage:
     from_field = (By.ID, 'from')
     to_field = (By.ID, 'to')
     button_get_taxi = (By.CSS_SELECTOR, ".button.round")
-    comfort_button = (By.XPATH, '//*[@id="root"]/div/div[3]/div[3]/div[2]/div[1]/div[5]/div[1]/img')
-    active_ride_comfort = (By.XPATH, '//button[@data-for="tariff-card-4"]')
+    comfort_button = (By.XPATH, '//img[@src="/static/media/kids.075fd8d4.svg" and @alt="Comfort"]')
+    blanket_and_tissue_elements_comfort = (By.XPATH, '//div[@class="r-sw-label" and text()="Manta y pañuelos"]')
     number_field = (By.CSS_SELECTOR, ".np-button")
-    click_number_input = (By.XPATH, '//*[@id="root"]/div/div[1]/div[2]/div[1]/form/div[1]/div[1]/label')
+    click_number_input = (By.CSS_SELECTOR, ".np-input")
     add_phone = (By.ID, "phone")
     next_button = (By.XPATH, '//*[text()="Siguiente"]')
     code_field = (By.XPATH, '//label[@for="code"]')
@@ -25,14 +25,13 @@ class UrbanRoutesPage:
     add_code_card = (By.NAME, "code")
     rectangle_colors = (By.CSS_SELECTOR, ".plc")
     button_add_card_code = (By.XPATH, '//*[text()="Agregar"]')
-    button_close_payment_method = (By.XPATH, '//*[@id="root"]/div/div[2]/div[2]/div[1]/button')
-    card_image = (By.CSS_SELECTOR, ".pp-value-container")
-    select_message_driver = (By.XPATH, '//*[@id="root"]/div/div[3]/div[3]/div[2]/div[2]/div[3]/div/label')
+    button_close_payment_method = (By.XPATH, '//div[@class="payment-picker open"]/div[@class="modal"]/div[@class="section active"]/button')
+    select_message_driver = (By.XPATH, '//label[@for="comment" and @class="label"]')
     message_driver_field = (By.ID, "comment")
-    select_blanket_and_tissue = (By.XPATH, '//*[@id="root"]/div/div[3]/div[3]/div[2]/div[2]/div[4]/div[2]/div[1]/div/div[2]/div/span')
-    confirm_blanket_and_tissue = (By.CSS_SELECTOR,'#root > div > div.workflow > div.workflow-subcontainer > div.tariff-picker.shown > div.form > div.reqs.open > div.reqs-body > div:nth-child(1) > div > div.r-sw > div > input')
-    add_ice_cream = (By.XPATH, '//*[@id="root"]/div/div[3]/div[3]/div[2]/div[2]/div[4]/div[2]/div[3]/div/div[2]/div[1]/div/div[2]/div/div[3]')
-    select_two_ice_creams = (By.XPATH, '//*[@id="root"]/div/div[3]/div[3]/div[2]/div[2]/div[4]/div[2]/div[3]/div/div[2]/div[1]/div/div[2]/div/div[2]')
+    select_blanket_and_tissue = (By.CLASS_NAME, 'r-sw')
+    confirm_blanket_and_tissue = (By.CSS_SELECTOR, '.r-sw > div >input')
+    add_ice_cream = (By.CSS_SELECTOR, '.r-group-items>:nth-child(1)>div>.r-counter>div>.counter-plus')
+    select_two_ice_creams = (By.CSS_SELECTOR, '.r-group-items>:nth-child(1)>div>.r-counter>div>.counter-value')
     search_taxi_button = (By.CSS_SELECTOR, ".smart-button-main")
     search_car_screen = (By.CSS_SELECTOR, ".order-header-title")
     img_driver = (By.XPATH, '//img[@src="/static/media/bender.e90e5089.svg"]')
@@ -65,12 +64,7 @@ class UrbanRoutesPage:
         self.driver.find_element(*self.comfort_button).click()
 
     def active_comfort(self):
-        return self.driver.find_element(*self.active_ride_comfort).is_displayed()
-
-    def select_ride_comfort(self):
-        self.click_button_get_taxi()
-        self.click_ride_comfort()
-        self.active_comfort()
+        return self.driver.find_element(*self.blanket_and_tissue_elements_comfort).is_displayed()
 
     # 3.Seleccionar y rellenar el campo número de telefono
     def click_phone_field(self):
@@ -103,7 +97,7 @@ class UrbanRoutesPage:
         self.click_button_confirm()
 
     # 4.Agregar una tarjeta de crédito
-    def click_payment_method_field(self):
+     def click_payment_method_field(self):
         self.driver.find_element(*self.payment_method_field).click()
 
     def click_plus_button_card(self):
@@ -125,13 +119,15 @@ class UrbanRoutesPage:
         self.driver.find_element(*self.button_close_payment_method).click()
 
     def correct_add_card(self):
-        return self.driver.find_element(*self.card_image).is_displayed()
+        return self.driver.find_element(*self.add_number_card).get_property('value')
+
 
     def add_card_payment_method(self, card_number, card_code):
         self.click_payment_method_field()
         self.click_plus_button_card()
         self.add_card_number(card_number)
         self.add_card_code(card_code)
+        self.correct_add_card()
         self.click_another_place_screen()
         self.click_add_card_button()
         self.click_close_payment_method_screen()
