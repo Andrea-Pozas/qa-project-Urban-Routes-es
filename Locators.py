@@ -66,7 +66,7 @@ class UrbanRoutesPage:
     def active_comfort(self):
         return self.driver.find_element(*self.blanket_and_tissue_elements_comfort).is_displayed()
 
-        def select_ride_comfort(self):
+    def select_ride_comfort(self):
         self.click_button_get_taxi()
         self.click_ride_comfort()
 
