@@ -1,4 +1,4 @@
-import main
+import helpers
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
@@ -66,6 +66,10 @@ class UrbanRoutesPage:
     def active_comfort(self):
         return self.driver.find_element(*self.blanket_and_tissue_elements_comfort).is_displayed()
 
+        def select_ride_comfort(self):
+        self.click_button_get_taxi()
+        self.click_ride_comfort()
+
     # 3.Seleccionar y rellenar el campo número de telefono
     def click_phone_field(self):
         self.driver.find_element(*self.number_field).click()
@@ -78,9 +82,10 @@ class UrbanRoutesPage:
 
     def click_next_button(self):
         self.driver.find_element(*self.next_button).click()
-
+        
     def add_code_field(self):
-        self.driver.find_element(*self.add_code).send_keys(main.retrieve_phone_code(self.driver))
+        self.driver.find_element(*self.add_code).send_keys(helpers.retrieve_phone_code(self.driver))
+
 
     def click_button_confirm(self):
         self.driver.find_element(*self.button_confirm).click()
@@ -97,7 +102,7 @@ class UrbanRoutesPage:
         self.click_button_confirm()
 
     # 4.Agregar una tarjeta de crédito
-     def click_payment_method_field(self):
+    def click_payment_method_field(self):
         self.driver.find_element(*self.payment_method_field).click()
 
     def click_plus_button_card(self):
