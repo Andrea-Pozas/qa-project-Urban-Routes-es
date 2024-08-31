@@ -46,11 +46,10 @@ class TestUrbanRoutes:
     # 4. Verifica que una tarjeta haya sido agregada
     def test_add_card(self):
         routes_page = UrbanRoutesPage(self.driver)
-        self.driver.implicitly_wait(5)
         card_number, card_code = data.card_number, data.card_code
         routes_page.add_card_payment_method(card_number, card_code)
-        assert routes_page.correct_add_card() == True
-
+        assert routes_page.correct_add_card() == card_number
+        
     # 5. Verifica el mensaje para el conductor
     def test_message_for_driver(self):
         routes_page = UrbanRoutesPage(self.driver)
