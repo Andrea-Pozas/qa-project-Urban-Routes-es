@@ -26,6 +26,7 @@ class UrbanRoutesPage:
     rectangle_colors = (By.CSS_SELECTOR, ".plc")
     button_add_card_code = (By.XPATH, '//*[text()="Agregar"]')
     button_close_payment_method = (By.XPATH, '//div[@class="payment-picker open"]/div[@class="modal"]/div[@class="section active"]/button')
+    text_card = (By.CLASS_NAME, "pp-value-text")
     select_message_driver = (By.XPATH, '//label[@for="comment" and @class="label"]')
     message_driver_field = (By.ID, "comment")
     select_blanket_and_tissue = (By.CLASS_NAME, 'r-sw')
@@ -124,7 +125,8 @@ class UrbanRoutesPage:
         self.driver.find_element(*self.button_close_payment_method).click()
 
     def correct_add_card(self):
-        return self.driver.find_element(*self.add_number_card).get_property('value')
+        #return self.driver.find_element(*self.add_number_card).get_property('value')
+        return self.driver.find_element(*self.text_card).text #CAMBIO SUGERIDO
 
 
     def add_card_payment_method(self, card_number, card_code):
@@ -132,7 +134,7 @@ class UrbanRoutesPage:
         self.click_plus_button_card()
         self.add_card_number(card_number)
         self.add_card_code(card_code)
-        self.correct_add_card()
+        # self.correct_add_card()
         self.click_another_place_screen()
         self.click_add_card_button()
         self.click_close_payment_method_screen()
