@@ -127,7 +127,7 @@ class UrbanRoutesPage:
     def correct_add_card(self):
         return self.driver.find_element(*self.add_number_card).get_property('value')
 
-    def correct_add_card(self):
+    def correct_text_add_card(self):
         return self.driver.find_element(*self.text_card).text #CAMBIO SUGERIDO
 
 
