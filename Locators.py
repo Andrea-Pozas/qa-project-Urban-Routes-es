@@ -136,7 +136,7 @@ class UrbanRoutesPage:
         self.click_plus_button_card()
         self.add_card_number(card_number)
         self.add_card_code(card_code)
-        # self.correct_add_card()
+        self.correct_add_card()
         self.click_another_place_screen()
         self.click_add_card_button()
         self.click_close_payment_method_screen()
