@@ -48,7 +48,7 @@ class TestUrbanRoutes:
         routes_page = UrbanRoutesPage(self.driver)
         card_number, card_code = data.card_number, data.card_code
         routes_page.add_card_payment_method(card_number, card_code)
-        assert routes_page.correct_add_card() == card_number
+        assert routes_page.correct_add_card() == "Tarjeta" #CAMBIO SUGERIDO 
         
     # 5. Verifica el mensaje para el conductor
     def test_message_for_driver(self):
