@@ -125,7 +125,9 @@ class UrbanRoutesPage:
         self.driver.find_element(*self.button_close_payment_method).click()
 
     def correct_add_card(self):
-        #return self.driver.find_element(*self.add_number_card).get_property('value')
+        return self.driver.find_element(*self.add_number_card).get_property('value')
+
+    def correct_add_card(self):
         return self.driver.find_element(*self.text_card).text #CAMBIO SUGERIDO
 
 
