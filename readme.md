@@ -1,7 +1,7 @@
 
 # Pruebas automatizadas para pedir un taxi en Urban Routes 
 
-- Pruebas automatizadas para para curbrir el proceso de pedir un taxi en la aplicación web Uraban Routes
+- Pruebas automatizadas para para curbrir el proceso de pedir un taxi en la aplicación web Urban Routes
 - Pruebas para pedir un taxi de la tarifa comfort de Urban Routes
 - Para realizar los test se necesitan tener instalados los paquetes Selenium y pytest
 - Las pruebas que se ejecutan son las siguientes:
