@@ -3,7 +3,18 @@
 
 - Pruebas automatizadas para para curbrir el proceso de pedir un taxi en la aplicación web Urban Routes
 - Pruebas para pedir un taxi de la tarifa comfort de Urban Routes
+# Herramientas 
+- lenguajes:
+
+  ![Static Badge](https://img.shields.io/badge/Python-%233776AB?style=for-the-badge&logo=python&logoColor=white)
+
+- librerías:
+  
+  ![Static Badge](https://img.shields.io/badge/Pytest-%230A9EDC?style=for-the-badge&logo=pytest&logoColor=white)
+
 - Para realizar los test se necesitan tener instalados los paquetes Selenium y pytest
+
+# Test 
 - Las pruebas que se ejecutan son las siguientes:
   -  test_set_route: verifica que las direcciones han sido agregadadas correctamente
   -  test_select_comfort: verifica que la tarifa conform ha sido seleccionada
